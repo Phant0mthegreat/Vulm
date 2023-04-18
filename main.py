@@ -25,7 +25,7 @@ def info():
 {f}
 
   """)
-  print('O programa Vulm, foi criado com a intensão de facilitar o encontro de dados pela web. \n-------------------------------------------------\n                    Dúvidas↓\n\n[?] Estou colocando o ip, porém não consigo localizar os dados, o que fazer ? \n[✓] Isso ocorre quando o programa não reconhece o ip com base na ferramenta selecionada, é por isso que existe a opção de ultilizar mais de uma ferramenta, isso também pode acontecer com as outras consultas (CEP, CNPJ)\n\n[?] Em qual versão está o programa ?\n[✓]Está na versão beta.')
+  print('O programa Vulm, foi criado com a intensão de facilitar o encontro de dados pela web. \n-------------------------------------------------\n                    Dúvidas↓\n\n[?] Estou colocando o ip, porém não consigo localizar os dados, o que fazer ? \n[✓] Isso ocorre quando o programa não reconhece o ip com base na ferramenta selecionada, é por isso que existe a opção de ultilizar mais de uma ferramenta, isso também pode acontecer com as outras consultas (CEP, CNPJ)\n\n[?] Em qual versão está o programa ?\n[✓]Está na versão V1.')
   
 def ip():  
     n1 = str(input(f'{f}>>>{az} [CONSULTA IP]{f} - Escolha a ferramenta\n\n- {az}[{f}01{az}]{f} Ip{f}\n- {az}[{f}02{az}]{f} Ipgeolocation{f}  \n- {am}>{f} '))         
