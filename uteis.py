@@ -7,7 +7,7 @@ def wifi():
   time.sleep(2)
   try:
         requests.get(url, timeout=timeout)
-  except ConnectionError:
+  except:
         print(f'\nNão foi possível se conectar ao {c.blue}Vulm{c.white}.\nTente novamente mais tarde')
         sys.exit()
 def cep_viacep():
