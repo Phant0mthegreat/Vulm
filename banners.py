@@ -15,9 +15,11 @@ banner1="""            __     __     _
 opc=f"""{c.bwhite}Bem vindo(a) ao Vulm !\nescolhas as opções a seguir ↓\n\n{c.white}[{c.blue}01{c.white}]{c.white} - Consultar CEP
 {c.white}[{c.blue}02{c.white}]{c.white} - Consultar CNPJ
 {c.white}[{c.blue}03{c.white}]{c.white} - Consultar IP
+{c.white}[{c.blue}04{c.white}]{c.white} - Consultar Número de telefone
 
-{c.white}[{c.cyan}04{c.white}]{c.white} - Informações
-{c.white}[{c.cyan}00{c.white}]{c.white} - Sair\n"""
+
+{c.white}[{c.cyan}05{c.white}]{c.white} - Informações
+{c.white}[{c.cyan}S{c.white}]{c.white} - Sair\n"""
 banner2="""               .--.
               /.-. '----------.
               \'-' .--"--""-"-'
