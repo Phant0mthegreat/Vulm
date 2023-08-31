@@ -9,7 +9,7 @@ try:
     os.system('clear')
     print(Colorate.Vertical(Colors.blue_to_green, banners.banner1))
     print(
-      f'{c.rblue}Creatd By: Phant0m The Great{c.white}\n{c.rblue}Version: 3.0{c.white}\n'
+      f'{c.rblue}Creatd By: Phant0m The Great{c.white}\n{c.rblue}Version: {uteis.Versão}{c.white}\n'
     )
     print('─' * 54)
     print(banners.opc)
@@ -48,6 +48,10 @@ try:
         print(Colorate.Vertical(Colors.blue_to_green, banners.banner2))
         uteis.ipg()
     elif esc == '04' or esc == '4':
+      os.system('clear')
+      print(Colorate.Vertical(Colors.blue_to_green, banners.banner2))
+      uteis.numer()
+    elif esc == '05' or esc == '5':
       os.system("clear")
       print(Colorate.Vertical(Colors.blue_to_green, banners.banner1))
       print(
@@ -55,10 +59,10 @@ try:
       )
       print('─' * 54)
       print(
-        f'\n{c.bcyan}Sobre{c.white}: Vulm, é uma ferramenta com o objetivo de otimizar o processo de coleta de informações.\n\n[{c.bwhite}©{c.white}] → Ferramenta criada por: Phant0m The Great\n\n[{c.bblue}©d{c.white}] → Discord do criador: phant0mthegreat\n\n[{c.bred}☠{c.white}] → Bugs: Caso encontre algum bug na ferramenta, entre em contato com o criador para reportar o bug.\n'
+        f'\n{c.bcyan}Sobre{c.white}: Vulm, é uma ferramenta com o objetivo de otimizar o processo de coleta de informações.\n\n[{c.bwhite}©{c.white}] → Ferramenta criada por: Phant0m The Great\n\n[{c.bblue}©d{c.white}] → Discord do criador: phant0mthegreat\n\n[{c.green}V{c.white}] Versão: {uteis.Versão}\n\n[{c.bred}☠{c.white}] → Bugs: Caso encontre algum bug na ferramenta, entre em contato com o criador para reportar o bug.\n'
       )
       input(f"""[ENTER] Para voltar ao menu.""")
-    elif esc == '00' or esc == '0':
+    elif esc == 'S' or esc == 's':
       os.system("clear")
       print(Colorate.Vertical(Colors.blue_to_green, banners.banner4))
       print('')
@@ -66,3 +70,4 @@ try:
       sys.exit()
 except KeyboardInterrupt:
   print(f'\n[{c.bcyan}#{c.white}] O programa foi interrompido.')
+      
