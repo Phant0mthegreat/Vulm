@@ -52,7 +52,7 @@ def cep_apicep():
           input('[ENTER] para voltar ao menu.')
 def cnpj():
     print('Fortamo: XXXXXXXXXXXXXX')
-    cpnj1=input(f'{c.white}- >>>{c.yellow}[ {c.white}Fonte Receita Federal {c.yellow}]{c.white} \n CNPJ >> ')
+    cpnj1=input(f'{c.white}- >>>{c.yellow}[ {c.white}Fonte: Receita Federal {c.yellow}]{c.white} \n CNPJ >> ')
     try:
       url1='https://www.receitaws.com.br/v1/cnpj/{}'.format(cpnj1)
       res=requests.get(url1);req1=res.json()
@@ -90,7 +90,7 @@ def ipg():
         print(f'''\n[{c.red}!{c.white}] {c.red}IP inválido.{c.white}\n''')
         input('[ENTER] para voltar ao menu.')
 def numer():
-  print(f'Formato: +XXXXXXXXXXXXX\n- >>>{c.yellow}[{c.white} Phonenumbers {c.yellow}]{c.white}')
+  print(f'Formato: +XXXXXXXXXXXXX\n- >>>{c.yellow}[{c.white} Fonte: Phonenumbers {c.yellow}]{c.white}')
   numero = input(" Número >> ")
   if len(numero)!=14:
     print(f'''\n[{c.red}!{c.white}] {c.red}Número inválido.{c.white}\n''')
