@@ -28,7 +28,8 @@ def cep_viacep():
             print(resl2)
             input('[ENTER] para voltar ao menu.')
         except:
-         96042656000128
+         print(f'''\n[{c.red}!{c.white}] {c.red}IP inválido.{c.white}\n''')
+         input('[ENTER] para voltar ao menu.')
 
 
           
