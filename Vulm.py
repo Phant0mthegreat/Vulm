@@ -51,11 +51,15 @@ try:
       os.system('clear')
       print(Colorate.Vertical(Colors.blue_to_green, banners.banner2))
       uteis.numer()
-    elif esc == '05' or esc == '5':
+    elif esc == '05' or esc =='5':
+      os.system('clear')
+      print(Colorate.Vertical(Colors.blue_to_green, banners.banner2))
+      uteis.placa_fipeplaca()
+    elif esc == '06' or esc == '6':
       os.system("clear")
       print(Colorate.Vertical(Colors.blue_to_green, banners.banner1))
       print(
-        f'{c.rblue}Creatd By: Phant0m The Great{c.white}\n{c.rblue}Version: 4.0{c.white}\n'
+        f'{c.rblue}Creatd By: Phant0m The Great{c.white}\n{c.rblue}Version: 3.0{c.white}\n'
       )
       print('─' * 54)
       print(
@@ -70,4 +74,4 @@ try:
       sys.exit()
 except KeyboardInterrupt:
   print(f'\n[{c.bcyan}#{c.white}] O programa foi interrompido.')
-      
+        
