@@ -4,7 +4,7 @@ from phonenumbers import geocoder
 from phonenumbers import carrier
 from phonenumbers import timezone
 from pystyle import Colorate, Colors
-Versão='4.0'
+Versão='5.0'
 def wifi():
   print(f'\nSe conectando ao {c.bblue}Vulm{c.white}...')
   url = 'https://www.google.com'
@@ -15,6 +15,55 @@ def wifi():
   except:
         print(f'\nNão foi possível se conectar ao {c.blue}Vulm{c.white}.\nTente novamente mais tarde')
         sys.exit()
+def placa_fipeplaca():
+    print(f'Formato: ABC1234 {c.cyan}ou{c.white} ABC1D23')
+    placa = input(f'{c.white}- >>>{c.yellow}[ {c.white}Fonte: FipePlaca {c.yellow}]{c.white} \n Placa >> ')
+    pattern = re.compile(r'\s+')    
+    placa = re.sub(pattern, '', placa)
+    url = f"https://www.fipeplaca.com.br/_next/data/dpgLQgwe3OL_eJHYZALg7/search/{placa}.json?plate={placa}"
+
+    try:
+        response = requests.get(url)
+        data = response.json()
+
+        if data.get('pageProps') and data['pageProps'].get('vehicle'):
+            vehicle_info = data['pageProps']['vehicle']
+            print(f'{c.white}\n{"─"*47}{c.white}\n'
+                  f'{c.bwhite}[Marca]: {c.cyan}{vehicle_info["marca"]}\n'
+                  f'{c.bwhite}[Modelo]: {c.cyan}{vehicle_info["modelo"]}\n'
+                  f'{c.bwhite}[Ano Modelo]: {c.cyan}{vehicle_info["anoModelo"]}\n'
+                  f'{c.bwhite}[Código Fipe]: {c.cyan}{vehicle_info["codigoFipe"]}\n'
+                  f'{c.bwhite}[Cilindradas]: {c.cyan}{vehicle_info["cilindradas"]}\n'
+                  f'{c.bwhite}[Potência]: {c.cyan}{vehicle_info["potencia"]}\n'
+                  f'{c.bwhite}[Cor]: {c.cyan}{vehicle_info["cor"]}\n'
+                  f'{c.bwhite}[UF]: {c.cyan}{vehicle_info["uf"]}\n'
+                  f'{c.bwhite}[Município]: {c.cyan}{vehicle_info["municipio"]}\n'
+                  f'{c.bwhite}[Renavam]: {c.cyan}{vehicle_info["renavam"]}\n'
+                  f'{c.bwhite}[Chassi]: {c.cyan}{vehicle_info["chassi"]}\n'
+                  f'{c.bwhite}[IPVA]: {c.cyan}{vehicle_info["ipva"]}\n'
+                  f'{c.bwhite}[Placa]: {c.cyan}{vehicle_info["placa"]}')
+
+            if vehicle_info.get('fipe'):
+                for fipe_entry in vehicle_info['fipe']:
+                    print(f'{c.bwhite}[Valor]: {c.cyan}{fipe_entry["Valor"]}\n'
+                          f'{c.bwhite}[Marca]: {c.cyan}{fipe_entry["Marca"]}\n'
+                          f'{c.bwhite}[Modelo]: {c.cyan}{fipe_entry["Modelo"]}\n'
+                          f'{c.bwhite}[Ano Modelo]: {c.cyan}{fipe_entry["AnoModelo"]}\n'
+                          f'{c.bwhite}[Combustível]: {c.cyan}{fipe_entry["Combustivel"]}\n'
+                          f'{c.bwhite}[Código Fipe]: {c.cyan}{fipe_entry["CodigoFipe"]}\n'
+                          f'{c.bwhite}[Mês Referência]: {c.cyan}{fipe_entry["MesReferencia"]}\n'
+                          f'{c.bwhite}[Autenticação]: {c.cyan}{fipe_entry["Autenticacao"]}\n'
+                          f'{c.bwhite}[Tipo Veículo]: {c.cyan}{fipe_entry["TipoVeiculo"]}\n'
+                          f'{c.bwhite}[Sigla Combustível]: {c.cyan}{fipe_entry["SiglaCombustivel"]}\n'
+                          f'{c.bwhite}[Data Consulta]: {c.cyan}{fipe_entry["DataConsulta"]}\n'
+                          f'{c.bwhite}[IPVA]: {c.cyan}{fipe_entry["ipva"]}\n{c.white}{"─"*47}')   
+            input(f'{c.white}\n[ENTER] para voltar ao menu.')
+        else:
+            print(f'''\n[{c.red}!{c.white}] {c.red}Placa inválida.{c.white}\n''')
+            input('[ENTER] para voltar ao menu.')
+    except:
+        print(f'''\n[{c.red}!{c.white}] {c.red}Placa inválida.{c.white}\n''')
+        input('[ENTER] para voltar ao menu.')
 def cep_viacep():
         os.system("clear")
         print(Colorate.Vertical(Colors.blue_to_green, banners.banner2))
@@ -28,11 +77,6 @@ def cep_viacep():
             print(resl2)
             input('[ENTER] para voltar ao menu.')
         except:
-         print(f'''\n[{c.red}!{c.white}] {c.red}IP inválido.{c.white}\n''')
-         input('[ENTER] para voltar ao menu.')
-
-
-          
          print(f'''\n[{c.red}!{c.white}] {c.red}CEP inválido.{c.white}\n''')
          input('[ENTER] para voltar ao menu.')
 def cep_apicep():
@@ -52,7 +96,7 @@ def cep_apicep():
           print(f'''[{c.red}!{c.white}] {c.red}CEP inválido.{c.white}\n''')
           input('[ENTER] para voltar ao menu.')
 def cnpj():
-    print('Fortamo: XXXXXXXXXXXXXX')
+    print('Formato: XXXXXXXXXXXXXX')
     cpnj1=input(f'{c.white}- >>>{c.yellow}[ {c.white}Fonte: Receita Federal {c.yellow}]{c.white} \n CNPJ >> ')
     try:
       url1='https://www.receitaws.com.br/v1/cnpj/{}'.format(cpnj1)
@@ -85,7 +129,7 @@ def ipg():
         req=res.json()
         br="\n{}{}\n{}[Ip]: {}{}\n{}[Código do continente]: {}{}\n{}[Nome do continente]: {}{}\n{}[Código do país 2]: {}{}\n{}[Código do país 3]: {}{}\n{}[Nome do país]: {}{}\n{}[Capital do país]: {}{}\n{}[Prov do estado]: {}{}\n{}[Distrito]: {}{}\n{}[Cidade]: {}{}\n{}[CEP]: {}{}\n{}[Latitude]: {}{}\n{}[Longitude]: {}{}\n{}[Is_eu]: {}{}\n{}[Código de chamada]: {}{}\n{}[País tld]: {}{}\n{}[Languages]: {}{}{}{}".format(c.white,'─'*47,c.bwhite,c.cyan,req['ip'],c.bwhite,c.cyan,req['continent_code'],c.bwhite,c.cyan,req['continent_name'],c.bwhite,c.cyan,req['country_code2'],c.bwhite,c.cyan,req['country_code3'],c.bwhite,c.cyan,req['country_name'],c.bwhite,c.cyan,req['country_capital'],c.bwhite,c.cyan,req['state_prov'],c.bwhite,c.cyan,req['district'],c.bwhite,c.cyan,req['city'],c.bwhite,c.cyan,req['zipcode'],c.bwhite,c.cyan,req['latitude'],c.bwhite,c.cyan,req['longitude'],c.bwhite,c.cyan,req['is_eu'],c.bwhite,c.cyan,req['calling_code'],c.bwhite,c.cyan,req['country_tld'],c.bwhite,c.cyan,req['languages'],req['country_flag'],req['geoname_id'])
         print(br)
-        print(f'''{c.white}-''' * 47)
+        print(f'''{c.white}─''' * 47)
         input('[ENTER] para voltar ao menu.')
       except:
         print(f'''\n[{c.red}!{c.white}] {c.red}IP inválido.{c.white}\n''')
@@ -102,7 +146,7 @@ def numer():
       loc = geocoder.description_for_number(parsing,"id")
       isp = carrier.name_for_number(parsing,"id")
       tz = timezone.time_zones_for_number(parsing) 
-      print(f"{'─'*47}\n{c.bwhite}[Info]: {c.cyan}{parsing}\n{c.bwhite}[Formato Nacional]: {c.cyan}{phn.national_significant_number(parsing)}\n{c.bwhite}[Formato Internacional]: {c.cyan}{phn.normalize_digits_only(parsing)}\n{c.bwhite}[Pode ser contatado internacionalmente ?]: {c.cyan}{phn.can_be_internationally_dialled(parsing)}\n{c.bwhite}[Localização]: {c.cyan}{loc}\n{c.bwhite}[Código de área]: {c.cyan}{phn.region_code_for_number(parsing)}\n{c.bwhite}[Operadora original do número]: {c.cyan}{isp}\n{c.bwhite}[Fuso Horário]: {c.cyan}{tz}\n{c.white}{'-'*47}")
+      print(f"{'─'*47}\n{c.bwhite}[Info]: {c.cyan}{parsing}\n{c.bwhite}[Formato Nacional]: {c.cyan}{phn.national_significant_number(parsing)}\n{c.bwhite}[Formato Internacional]: {c.cyan}{phn.normalize_digits_only(parsing)}\n{c.bwhite}[Pode ser contatado internacionalmente ?]: {c.cyan}{phn.can_be_internationally_dialled(parsing)}\n{c.bwhite}[Localização]: {c.cyan}{loc}\n{c.bwhite}[Código de área]: {c.cyan}{phn.region_code_for_number(parsing)}\n{c.bwhite}[Operadora original do número]: {c.cyan}{isp}\n{c.bwhite}[Fuso Horário]: {c.cyan}{tz}\n{c.white}{'─'*47}")
       input('[ENTER] para voltar ao menu.')
     except:
       print(f'''\n[{c.red}!{c.white}] {c.red}Número inválido.{c.white}\n''')
