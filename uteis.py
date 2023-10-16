@@ -16,7 +16,7 @@ def wifi():
         print(f'\nNão foi possível se conectar ao {c.blue}Vulm{c.white}.\nTente novamente mais tarde')
         sys.exit()
 def placa_fipeplaca():
-    print(f'Formato: ABC1234 {c.cyan}ou{c.white} ABC1D23')
+    print('Formato: ABC1234')
     placa = input(f'{c.white}- >>>{c.yellow}[ {c.white}Fonte: FipePlaca {c.yellow}]{c.white} \n Placa >> ')
     pattern = re.compile(r'\s+')    
     placa = re.sub(pattern, '', placa)
