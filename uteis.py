@@ -4,7 +4,7 @@ from phonenumbers import geocoder
 from phonenumbers import carrier
 from phonenumbers import timezone
 from pystyle import Colorate, Colors
-Versão='5.0'
+Versão='5.7'
 def wifi():
   print(f'\nSe conectando ao {c.bblue}Vulm{c.white}...')
   url = 'https://www.google.com'
@@ -93,7 +93,7 @@ def cep_apicep():
             print(resl3)
             input('[ENTER] para voltar ao menu.')
         except:
-          print(f'''[{c.red}!{c.white}] {c.red}CEP inválido.{c.white}\n''')
+          print(f'''\n[{c.red}!{c.white}] {c.red}CEP inválido.{c.white}\n''')
           input('[ENTER] para voltar ao menu.')
 def cnpj():
     print('Formato: XXXXXXXXXXXXXX')
@@ -110,30 +110,38 @@ def cnpj():
       input('[ENTER] para voltar ao menu.')
 def ip():
       ip2=input(f'{c.white}- >>>{c.yellow}[ {c.white}Fonte IP {c.yellow}]{c.white} \n Ip >> ')
-      try:
-        
-        url2='http://ip-api.com/json/{}'.format(ip2)
-        res2 = requests.get(url2)
-        req1=res2.json()
-        br2="\n{}{}\n{}[Status]: {}{}\n{}[País]: {}{}\n{}[Código do país]: {}{}\n{}[Região]: {}{}\n{}[Nome da região]: {}{}\n{}[Cidade]: {}{}\n{}[Zip]: {}{}\n{}[Lat]: {}{}\n{}[Lon]: {}{}\n{}[Fuso horário]: {}{}\n{}[Isp]: {}{}\n{}[Org]: {}{}\n{}[As]: {}{} {}{}\033[m\n{}".format(c.white,'─'*47,c.bwhite,c.cyan,req1['status'],c.bwhite,c.cyan,req1['country'],c.bwhite,c.cyan,req1['countryCode'],c.bwhite,c.cyan,req1['region'],c.bwhite,c.cyan,req1['regionName'],c.bwhite,c.cyan,req1['city'],c.bwhite,c.cyan,req1['zip'],c.bwhite,c.cyan,req1['lat'],c.bwhite,c.cyan,req1['lon'],c.bwhite,c.cyan,req1['timezone'],c.bwhite,c.cyan,req1['isp'],c.bwhite,c.cyan,req1['org'],c.bwhite,c.cyan,req1['as'],req1['query'],c.white,'─'*47)
-        print(br2)
-        input('[ENTER] para voltar ao menu.')
-      except:
+      if ip2 == '':
         print(f'''\n[{c.red}!{c.white}] {c.red}IP inválido.{c.white}\n''')
         input('[ENTER] para voltar ao menu.')
+      else:
+        try:
+        
+          url2='http://ip-api.com/json/{}'.format(ip2)
+          res2 = requests.get(url2)
+          req1=res2.json()
+          br2="\n{}{}\n{}[Status]: {}{}\n{}[País]: {}{}\n{}[Código do país]: {}{}\n{}[Região]: {}{}\n{}[Nome da região]: {}{}\n{}[Cidade]: {}{}\n{}[Zip]: {}{}\n{}[Lat]: {}{}\n{}[Lon]: {}{}\n{}[Fuso horário]: {}{}\n{}[Isp]: {}{}\n{}[Org]: {}{}\n{}[As]: {}{} {}{}\033[m\n{}".format(c.white,'─'*47,c.bwhite,c.cyan,req1['status'],c.bwhite,c.cyan,req1['country'],c.bwhite,c.cyan,req1['countryCode'],c.bwhite,c.cyan,req1['region'],c.bwhite,c.cyan,req1['regionName'],c.bwhite,c.cyan,req1['city'],c.bwhite,c.cyan,req1['zip'],c.bwhite,c.cyan,req1['lat'],c.bwhite,c.cyan,req1['lon'],c.bwhite,c.cyan,req1['timezone'],c.bwhite,c.cyan,req1['isp'],c.bwhite,c.cyan,req1['org'],c.bwhite,c.cyan,req1['as'],req1['query'],c.white,'─'*47)
+          print(br2)
+          input('[ENTER] para voltar ao menu.')
+        except:
+          print(f'''\n[{c.red}!{c.white}] {c.red}IP inválido.{c.white}\n''')
+          input('[ENTER] para voltar ao menu.')
 def ipg():
       ip1=input(f'- >>>{c.yellow}[{c.white} Fonte Ipgeolocation {c.yellow}]{c.white} \n Ip >> ')
-      try:
-        url1 = "https://api.ipgeolocation.io/ipgeo?apiKey=9313e7887bad45cea6d4b5845f085464&ip={}".format(ip1)
-        res = requests.get(url1)
-        req=res.json()
-        br="\n{}{}\n{}[Ip]: {}{}\n{}[Código do continente]: {}{}\n{}[Nome do continente]: {}{}\n{}[Código do país 2]: {}{}\n{}[Código do país 3]: {}{}\n{}[Nome do país]: {}{}\n{}[Capital do país]: {}{}\n{}[Prov do estado]: {}{}\n{}[Distrito]: {}{}\n{}[Cidade]: {}{}\n{}[CEP]: {}{}\n{}[Latitude]: {}{}\n{}[Longitude]: {}{}\n{}[Is_eu]: {}{}\n{}[Código de chamada]: {}{}\n{}[País tld]: {}{}\n{}[Languages]: {}{}{}{}".format(c.white,'─'*47,c.bwhite,c.cyan,req['ip'],c.bwhite,c.cyan,req['continent_code'],c.bwhite,c.cyan,req['continent_name'],c.bwhite,c.cyan,req['country_code2'],c.bwhite,c.cyan,req['country_code3'],c.bwhite,c.cyan,req['country_name'],c.bwhite,c.cyan,req['country_capital'],c.bwhite,c.cyan,req['state_prov'],c.bwhite,c.cyan,req['district'],c.bwhite,c.cyan,req['city'],c.bwhite,c.cyan,req['zipcode'],c.bwhite,c.cyan,req['latitude'],c.bwhite,c.cyan,req['longitude'],c.bwhite,c.cyan,req['is_eu'],c.bwhite,c.cyan,req['calling_code'],c.bwhite,c.cyan,req['country_tld'],c.bwhite,c.cyan,req['languages'],req['country_flag'],req['geoname_id'])
-        print(br)
-        print(f'''{c.white}─''' * 47)
-        input('[ENTER] para voltar ao menu.')
-      except:
+      if ip1 == '':
         print(f'''\n[{c.red}!{c.white}] {c.red}IP inválido.{c.white}\n''')
         input('[ENTER] para voltar ao menu.')
+      else:
+        try:
+          url1 = "https://api.ipgeolocation.io/ipgeo?apiKey=9313e7887bad45cea6d4b5845f085464&ip={}".format(ip1)
+          res = requests.get(url1)
+          req=res.json()
+          br="\n{}{}\n{}[Ip]: {}{}\n{}[Código do continente]: {}{}\n{}[Nome do continente]: {}{}\n{}[Código do país 2]: {}{}\n{}[Código do país 3]: {}{}\n{}[Nome do país]: {}{}\n{}[Capital do país]: {}{}\n{}[Prov do estado]: {}{}\n{}[Distrito]: {}{}\n{}[Cidade]: {}{}\n{}[CEP]: {}{}\n{}[Latitude]: {}{}\n{}[Longitude]: {}{}\n{}[Is_eu]: {}{}\n{}[Código de chamada]: {}{}\n{}[País tld]: {}{}\n{}[Languages]: {}{}{}{}".format(c.white,'─'*47,c.bwhite,c.cyan,req['ip'],c.bwhite,c.cyan,req['continent_code'],c.bwhite,c.cyan,req['continent_name'],c.bwhite,c.cyan,req['country_code2'],c.bwhite,c.cyan,req['country_code3'],c.bwhite,c.cyan,req['country_name'],c.bwhite,c.cyan,req['country_capital'],c.bwhite,c.cyan,req['state_prov'],c.bwhite,c.cyan,req['district'],c.bwhite,c.cyan,req['city'],c.bwhite,c.cyan,req['zipcode'],c.bwhite,c.cyan,req['latitude'],c.bwhite,c.cyan,req['longitude'],c.bwhite,c.cyan,req['is_eu'],c.bwhite,c.cyan,req['calling_code'],c.bwhite,c.cyan,req['country_tld'],c.bwhite,c.cyan,req['languages'],req['country_flag'],req['geoname_id'])
+          print(br)
+          print(f'''{c.white}─''' * 47)
+          input('[ENTER] para voltar ao menu.')
+        except:
+          print(f'''\n[{c.red}!{c.white}] {c.red}IP inválido.{c.white}\n''')
+          input('[ENTER] para voltar ao menu.')
 def numer():
   print(f'Formato: +XXXXXXXXXXXXX\n- >>>{c.yellow}[{c.white} Fonte: Phonenumbers {c.yellow}]{c.white}')
   numero = input(" Número >> ")
