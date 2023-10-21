@@ -1,6 +1,6 @@
 <p align="center">
 
-  <img width="200" height="200" src="IMG-20231015-WA0023.jpg">
+  <img width="500" height="500" src="IMG-20231015-WA0023.jpg">
   
 # 🛰️ Vulm
 Vulm, uma ferramenta criada para otimizar a coleta de informações.
@@ -25,7 +25,7 @@ Use o comando ↓
  - `python3 Vulm.py`
 para iniciar o programa
 
-## 🗃️ Versão Atual: 5.0
+## 🗃️ Versão Atual: 5.7
 1.0 = ??/??/????
 
 2.0 = ??/??/????
