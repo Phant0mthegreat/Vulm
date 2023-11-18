@@ -1,6 +1,6 @@
 <p align="center">
 
-  <img width="500" height="500" src="IMG-20231118-WA0019.jpg">
+  <img width="400" height="400" src="IMG-20231118-WA0019.jpg">
   
 # 🛰️ Vulm
 Vulm, uma ferramenta criada para otimizar a coleta de informações.
