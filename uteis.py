@@ -168,7 +168,7 @@ def numer():
 def CT():
   os.system('clear')
   print(Colorate.Vertical(Colors.blue_to_green, banners.banner2))
-  print(f'- >>>{c.yellow}[{c.white} Fonte: Token {c.yellow}]{c.white}')
+  print(f'{c.white}- >>>{c.yellow}[{c.white} Fonte: Token {c.yellow}]{c.white}')
   token=input(' Token >> ')
   head = {'Authorization': str(token)}
   src = requests.get('https://discordapp.com/api/v6/users/@me', headers=head)
