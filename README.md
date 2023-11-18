@@ -25,7 +25,7 @@ Use o comando ↓
  - `python3 Vulm.py`
 para iniciar o programa quando quiser
 
-## 🗃️ Versão Atual: 5.7
+## 🗃️ Versão Atual: 6.0
 1.0 = ??/??/????
 
 2.0 = ??/??/????
