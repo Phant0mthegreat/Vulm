@@ -2,7 +2,7 @@ import sys, time, cores as c
 def Carreg():
 	l = ['|', '-', '|', '-']
 	for i in l+l+l:
-		sys.stdout.write('\r' + f'''Iniciando {c.bblue}Vulm{c.white}...'''+i)
+		sys.stdout.write('\r' + f'''Iniciando {c.bblue}Vulm{c.white}...🛰️  '''+i)
 		sys.stdout.flush()
 		time.sleep(0.1)
 
@@ -17,9 +17,10 @@ opc=f"""{c.bwhite}Bem vindo(a) ao Vulm !\nescolhas as opções a seguir ↓\n\n{
 {c.white}[{c.blue}03{c.white}]{c.white} - Consultar IP
 {c.white}[{c.blue}04{c.white}]{c.white} - Consultar Número de telefone
 {c.white}[{c.blue}05{c.white}]{c.white} - Consultar Placa
+{c.white}[{c.blue}06{c.white}]{c.white} - Consultar Token (Discord)
 
 
-{c.white}[{c.cyan}06{c.white}]{c.white} - Informações
+{c.white}[{c.cyan}07{c.white}]{c.white} - Informações
 {c.white}[{c.cyan}S{c.white}]{c.white} - Sair\n"""
 banner2="""               .--.
               /.-. '----------.
