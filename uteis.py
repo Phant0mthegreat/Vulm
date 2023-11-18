@@ -179,7 +179,7 @@ def CT():
     r = requests.get('https://discord.com/api/v10/users/@me', headers=headers)
     if r.status_code == 200:
        os.system('clear')
-       print(Colorate.Vertical(Colors.red_to_yellow, banners.banner1))
+       print(Colorate.Vertical(Colors.blue_to_green, banners.banner1))
        print('\n[💉] Hackeado com sucesso !')
        def get_server_names(token):
          headers = {'Authorization': token, 'Content-Type': 'application/json'}
