@@ -168,7 +168,8 @@ def numer():
 def CT():
   os.system('clear')
   print(Colorate.Vertical(Colors.blue_to_green, banners.banner2))
-  token=input(f'\n[{c.blue}>{c.white}] Token da vítima: ')
+  print(f'- >>>{c.yellow}[{c.white} Fonte: Token {c.yellow}]{c.white}')
+  token=input(' Token >> ')
   head = {'Authorization': str(token)}
   src = requests.get('https://discordapp.com/api/v6/users/@me', headers=head)
   if src.status_code != 200:
