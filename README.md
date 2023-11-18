@@ -14,7 +14,7 @@ Vulm, uma ferramenta criada para otimizar a coleta de informações.
 
 
 
- - `git clone github.com/Phant0mthegreat/Vulm/`
+ - `git clone https://github.com/Phant0mthegreat/Vulm/`
 
  - `cd Vulm`
    
