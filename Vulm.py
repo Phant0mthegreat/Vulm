@@ -57,6 +57,9 @@ try:
       uteis.placa_fipeplaca()
     elif esc == '06' or esc == '6':
       os.system("clear")
+      uteis.CT()
+    elif esc == '07' or esc == '7':
+      os.system("clear")
       print(Colorate.Vertical(Colors.blue_to_green, banners.banner1))
       print(
         f'{c.rblue}Creatd By: Phant0m The Great{c.white}\n{c.rblue}Version: {uteis.Versão}{c.white}\n'
