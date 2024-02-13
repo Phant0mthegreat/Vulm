@@ -9,7 +9,7 @@ from phonenumbers import timezone
 from pystyle import Colorate, Colors
 from datetime import datetime
 console=Console()
-Versão='6.0'
+Versão='6.1'
 def wifi():
   print(f'\nSe conectando ao {c.bblue}Vulm{c.white}...')
   url = 'https://www.google.com'
@@ -20,55 +20,6 @@ def wifi():
   except:
         print(f'\nNão foi possível se conectar ao {c.blue}Vulm{c.white}.\nTente novamente mais tarde')
         sys.exit()
-def placa_fipeplaca():
-    print('Formato: ABC1234')
-    placa = input(f'{c.white}- >>>{c.yellow}[ {c.white}Fonte: FipePlaca {c.yellow}]{c.white} \n Placa >> ')
-    pattern = re.compile(r'\s+')    
-    placa = re.sub(pattern, '', placa)
-    url = f"https://www.fipeplaca.com.br/_next/data/dpgLQgwe3OL_eJHYZALg7/search/{placa}.json?plate={placa}"
-
-    try:
-        response = requests.get(url)
-        data = response.json()
-
-        if data.get('pageProps') and data['pageProps'].get('vehicle'):
-            vehicle_info = data['pageProps']['vehicle']
-            print(f'{c.white}\n{"─"*47}{c.white}\n'
-                  f'{c.bwhite}[Marca]: {c.cyan}{vehicle_info["marca"]}\n'
-                  f'{c.bwhite}[Modelo]: {c.cyan}{vehicle_info["modelo"]}\n'
-                  f'{c.bwhite}[Ano Modelo]: {c.cyan}{vehicle_info["anoModelo"]}\n'
-                  f'{c.bwhite}[Código Fipe]: {c.cyan}{vehicle_info["codigoFipe"]}\n'
-                  f'{c.bwhite}[Cilindradas]: {c.cyan}{vehicle_info["cilindradas"]}\n'
-                  f'{c.bwhite}[Potência]: {c.cyan}{vehicle_info["potencia"]}\n'
-                  f'{c.bwhite}[Cor]: {c.cyan}{vehicle_info["cor"]}\n'
-                  f'{c.bwhite}[UF]: {c.cyan}{vehicle_info["uf"]}\n'
-                  f'{c.bwhite}[Município]: {c.cyan}{vehicle_info["municipio"]}\n'
-                  f'{c.bwhite}[Renavam]: {c.cyan}{vehicle_info["renavam"]}\n'
-                  f'{c.bwhite}[Chassi]: {c.cyan}{vehicle_info["chassi"]}\n'
-                  f'{c.bwhite}[IPVA]: {c.cyan}{vehicle_info["ipva"]}\n'
-                  f'{c.bwhite}[Placa]: {c.cyan}{vehicle_info["placa"]}')
-
-            if vehicle_info.get('fipe'):
-                for fipe_entry in vehicle_info['fipe']:
-                    print(f'{c.bwhite}[Valor]: {c.cyan}{fipe_entry["Valor"]}\n'
-                          f'{c.bwhite}[Marca]: {c.cyan}{fipe_entry["Marca"]}\n'
-                          f'{c.bwhite}[Modelo]: {c.cyan}{fipe_entry["Modelo"]}\n'
-                          f'{c.bwhite}[Ano Modelo]: {c.cyan}{fipe_entry["AnoModelo"]}\n'
-                          f'{c.bwhite}[Combustível]: {c.cyan}{fipe_entry["Combustivel"]}\n'
-                          f'{c.bwhite}[Código Fipe]: {c.cyan}{fipe_entry["CodigoFipe"]}\n'
-                          f'{c.bwhite}[Mês Referência]: {c.cyan}{fipe_entry["MesReferencia"]}\n'
-                          f'{c.bwhite}[Autenticação]: {c.cyan}{fipe_entry["Autenticacao"]}\n'
-                          f'{c.bwhite}[Tipo Veículo]: {c.cyan}{fipe_entry["TipoVeiculo"]}\n'
-                          f'{c.bwhite}[Sigla Combustível]: {c.cyan}{fipe_entry["SiglaCombustivel"]}\n'
-                          f'{c.bwhite}[Data Consulta]: {c.cyan}{fipe_entry["DataConsulta"]}\n'
-                          f'{c.bwhite}[IPVA]: {c.cyan}{fipe_entry["ipva"]}\n{c.white}{"─"*47}')   
-            input(f'{c.white}\n[ENTER] para voltar ao menu.')
-        else:
-            print(f'''\n[{c.red}!{c.white}] {c.red}Placa inválida.{c.white}\n''')
-            input('[ENTER] para voltar ao menu.')
-    except:
-        print(f'''\n[{c.red}!{c.white}] {c.red}Placa inválida.{c.white}\n''')
-        input('[ENTER] para voltar ao menu.')
 def cep_viacep():
         os.system("clear")
         print(Colorate.Vertical(Colors.blue_to_green, banners.banner2))
