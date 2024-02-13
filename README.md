@@ -25,7 +25,7 @@ Use o comando ↓
  - `python3 Vulm.py`
 para iniciar o programa quando quiser
 
-## 🗃️ Versão Atual: 6.0
+## 🗃️ Versão Atual: 6.1
 1.0 = ??/??/????
 
 2.0 = ??/??/????
@@ -39,5 +39,7 @@ para iniciar o programa quando quiser
 5.7 = 20/10/2023
 
 6.0 = 18/11/2023
+
+6.1 = 13/02/2024
 ## 📜 Nota
 Para que a instalação funcione, é preciso ter o "git", a línguagem python e o "pip" instalados.
