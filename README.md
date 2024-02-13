@@ -1,6 +1,6 @@
 <p align="center">
 
-  <img width="400" height="400" src="IMG-20231118-WA0019.jpg">
+  <img width="400" height="400" src="WhatsApp Image 2024-02-13 at 1.56.45 PM.jpeg">
   
 # 🛰️ Vulm
 Vulm, uma ferramenta criada para otimizar a coleta de informações.
