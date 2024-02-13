@@ -51,14 +51,10 @@ try:
       os.system('clear')
       print(Colorate.Vertical(Colors.blue_to_green, banners.banner2))
       uteis.numer()
-    elif esc == '05' or esc =='5':
-      os.system('clear')
-      print(Colorate.Vertical(Colors.blue_to_green, banners.banner2))
-      uteis.placa_fipeplaca()
-    elif esc == '06' or esc == '6':
+    elif esc == '05' or esc == '5':
       os.system("clear")
       uteis.CT()
-    elif esc == '07' or esc == '7':
+    elif esc == '06' or esc == '6':
       os.system("clear")
       print(Colorate.Vertical(Colors.blue_to_green, banners.banner1))
       print(
