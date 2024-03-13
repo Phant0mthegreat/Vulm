@@ -11,18 +11,25 @@ Vulm, uma ferramenta criada para otimizar a coleta de informações.
  > - - [x] **TERMUX** 
 
 ## 🔧 Instalação no Kali Linux e Termux
+> [!IMPORTANT]
+> 📩
+> Para que a instalação funcione, é preciso ter o "git", a línguagem python e o "pip" instalados.
 
-
-
- - `git clone https://github.com/Phant0mthegreat/Vulm/`
-
- - `cd Vulm`
-   
- - `bash install.sh`
-
+Para instalar o Vulm, execute ↓
+```
+git clone https://github.com/Phant0mthegreat/Vulm/
+```
+```
+cd Vulm
+```
+```   
+bash install.sh
+```
 ## 💉 Iniciar
 Use o comando ↓
- - `python3 Vulm.py`
+```
+python3 Vulm.py
+```
 para iniciar o programa quando quiser
 
 ## 🗃️ Versão Atual: 6.1
@@ -41,5 +48,3 @@ para iniciar o programa quando quiser
 6.0 = 18/11/2023
 
 6.1 = 13/02/2024
-## 📜 Nota
-Para que a instalação funcione, é preciso ter o "git", a línguagem python e o "pip" instalados.
